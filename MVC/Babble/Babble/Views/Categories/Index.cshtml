@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Babble.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table ">
+    <tr class="bg-primary">
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(moldel => moldel.Suppliers)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.CategoryCode)*@
+                @Html.ActionLink(item.CategoryCode.ToString(), "Edit", new { id = item.CategoryId }, new { @class = "btn btn-warning" })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Division)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                <ul>
+                    @foreach (var sup in item.Suppliers)
+                    {
+                        <li>@Html.DisplayFor(SupItem => sup.SupplierName)</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }, new { @class = "glyphicon glyphicon-edit" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>

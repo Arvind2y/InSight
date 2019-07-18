@@ -1,0 +1,41 @@
+# Node Image configuration
+image: node:8.9.4
+cache:
+  paths:
+    - node_modules/
+    - .yarn
+    
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+before_script:
+   - export CHROME_BIN=/usr/bin/google-chrome
+
+ 
+build-App:
+  stage: build
+  image: node:8.9
+  tags:
+    - docker
+  script:
+    - npm install
+    - npm run build
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist/*
+  only:
+    - master
+
+test 1:
+  stage: test
+  script: node_modules/.bin/ng test
+  

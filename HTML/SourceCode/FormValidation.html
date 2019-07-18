@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Form Validation: contact us</title>
+        <style>
+            body
+            {
+                margin: 0;
+                font-family: "Arial","sans-serif","Segoe UI","Helvetica Neue","Segoe UI Emoji",
+                "Segoe UI Symbol","Noto Color Emoji";
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #212529;
+                text-align: left;
+                background-color: #fff;
+            } 
+            .container
+            {
+                margin-right: auto;
+                margin-left: auto;
+                margin-top:20px;
+                padding: 10px;
+                border: 1px solid rgb(50, 116, 238);
+                width:100%;
+            }
+
+             @media (min-width: 1200px) {
+                .container{max-width: 1150px;}
+            }
+            @media (min-width: 992px){
+                .container { max-width: 970px; }
+            }
+
+            .validate-form { padding-bottom: 1.25rem;}
+            
+            .validate-form input, textarea  {
+                margin: 2px;
+                min-width: 300px;
+                border: 1px solid;
+                border-left: 10px solid;
+                border-radius: 7px 0px 0px 7px;
+                transition: border-color .5s ease-out;
+                display: block;
+                width: 100%;
+                padding: .375rem .75rem;
+                line-height: 1.5;
+                color: #495057;
+            }
+            .validate-form textarea  {
+                border: 1px solid !important;
+            }
+            .validate-form input:optional {
+                border-left-color: #999;
+            }
+            .validate-form input:required {
+                border-left-color: palegreen;
+            }
+            .validate-form input:invalid {
+                border-left-color: salmon;
+            }
+                     
+            .validate-form input:optional {
+                border-left-color: #999;
+            }
+            .validate-form input:required:valid 
+            {
+                border-color:  palegreen ;
+                background: url("src/img/check.svg") no-repeat 98% 50%;
+                background-size: 25px;
+            }
+            .validate-form input:invalid 
+            {
+                border-color: salmon;
+                background: url("src/img/cross.svg") no-repeat 98% 50%;
+            }
+            .validate-form input:required:focus:valid 
+            {
+                background: url("src/img/check.svg") no-repeat 98% 50%;
+                background-size: 25px;
+            }
+            /* <!-- textArea --> */
+            .validate-form textarea:required:valid 
+            {
+                border:solid 1px palegreen!important;
+                background: url("src/img/check.svg") no-repeat 98% 50%;
+                background-size: 25px;
+            }
+            .validate-form textarea:invalid 
+            {
+                border:solid 1px salmon!important;
+                background: url("src/img/cross.svg") no-repeat 98% 50%;
+            }
+            .validate-form textarea:required:focus:valid 
+            {
+                border:solid 1px palegreen!important;
+                background: url("src/img/check.svg") no-repeat 98% 50%;
+                background-size: 25px;
+            }
+            
+
+            .validate-form label {
+                    /*   padding-top: calc(.375rem + 1px); */
+            /* padding-bottom: calc(.375rem + 1px); */
+            /* margin-bottom: 0; */
+            /* margin-top: 1rem; */
+            font-size: inherit;
+            line-height: 1.5;
+            /* display: block; */
+            /* position: relative; */
+            width: calc(7rem + 1px);
+            min-height: 1px;
+            /* padding-right: 15px; */
+            padding-left: 15px;
+    
+            }
+            .btn {
+                display: inline-block;
+                font-weight: 400;
+                text-align: center;
+                border: 1px solid transparent;
+                padding: .375rem .75rem;
+                font-size: 1rem;
+                line-height: 1.5;
+                border-radius: .25rem;
+                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                cursor: hand;
+            }
+            .btn-green {
+                color: #fff;
+                background-color: #44c409;
+                border-color: #39aa05;
+                cursor: pointer;
+            }
+            .btn-green:hover {
+                color: #fff;
+                background-color: #51a729;
+                border-color: #3f9119;
+                cursor: pointer;
+            }
+            
+            .form_hint {
+                background: white;
+                border-radius: 3px 3px 3px 3px;
+                color: #d45252;
+                margin-left:8px;
+                padding: 1px 6px;
+                z-index: 999; /* hints stay above all other elements */
+              /*  position: absolute;  allows proper formatting if hint is two lines
+                display: none; */
+            }
+/*
+            .form_hint::before {
+                content: "\25C0";
+                color:#d45252;
+                position: absolute;
+                top:1px;
+                left:-6px;
+            }
+.validate-form input:focus + .form_hint {display: inline;}
+.validate-form input:required:valid + .form_hint {background: #28921f;}
+.validate-form input:required:valid + .form_hint::before {color:#28921f;}*/
+
+            .slider-wrapper {
+                display: inline-block;
+                width: 20px;
+                height: 150px;
+                padding: 0;
+            }
+            .slider-wrapper input {
+                width: 150px;
+                height: 20px;
+                margin: 0;
+                transform-origin: 75px 75px;
+                transform: rotate(-90deg);
+            }
+
+            .output {
+                font: 1rem 'Fira Sans', sans-serif;
+            }
+
+            label {
+                margin-top: 1rem;
+                display: block;
+                font-size: .8rem;
+            }
+
+            .row {
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                /* margin-right: -15px;
+                margin-left: -15px; */
+                margin-bottom: 1rem; 
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div class="container">
+                <section>
+                    <form action="#" class="validate-form">
+                        <div class="row">
+                            <div style="float: left;width: 50%;">
+                                <label style="font-weight: bolder; font-size: larger">Contact Us</label>
+                            </div>
+                            <div style="text-align: right; width: 50%; color: red; float: right; padding-top: 15px; font-weight: lighter">Fields
+                                marked in red are mandatory </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <label for="staticEmail" class="">First Name</label>
+                            <div class="col-sm">
+                                <input type="text" placeholder="First Name" title="Username should only contain lowercase letters. e.g. john"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm">
+                                <input type="email" class="form-control" placeholder="email@domain.com" required>
+                                <span class="form_hint">Proper format "name@domain.com"</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Website</label>
+                            <div class="col-sm">
+                                <input type="url" placeholder="http://Yourwebsite.com" required>
+                                <span class="form_hint">Proper format "http://someaddress.com"</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="staticEmail" class="col-sm-2 col-form-label">Message</label>
+                            <div class="col-sm">
+                                <textarea rows="4" cols="43"  maxlength="300" class="form-control" required
+                                    placeholder="Your message here!"></textarea>
+                            </div>
+                        </div>
+                        <div class="row"><label></label>
+                            <div>
+                                <button type="submit" id="btnSubmit" class="btn btn-green">Submit Form</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict';
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('validate-form');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('validate-form');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </body>
+
+</html>

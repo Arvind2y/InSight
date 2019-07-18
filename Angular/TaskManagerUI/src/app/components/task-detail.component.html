@@ -1,0 +1,105 @@
+<form autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+  <!-- TaskName -->
+  <input type="hidden" name="TaskId" [value]="service.formData.TaskId">
+  <input type="hidden" name="IsCompleted" [value]="service.formData.IsCompleted">
+  <div class="form-group row">
+    <label for="inputTaskName" class="col-sm-3 col-form-label">TaskName</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <!-- [class.red-border]="TaskName.invalid && TaskName.touched"
+          [class.green-border]="TaskName.valid" -->
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white" [class.red-icon]="TaskName.invalid && TaskName.touched"
+            [class.green-icon]="TaskName.valid">
+            <i class="fas fa-tasks"></i>
+          </div>
+        </div>
+        <input name="TaskName" #TaskName="ngModel" [(ngModel)]="service.formData.TaskName" type="text"
+          class="form-control" placeholder="Task Name" required maxlength="200" />
+      </div>
+    </div>
+  </div>
+  <!-- Priority -->
+  <div class="form-group row">
+    <label for="inputPriority" class="col-sm-3 col-form-label">Priority</label>
+    <div class="col-sm-9">
+      <div class="input-group flex-nowrap">
+        <input name="Priority" id="Priority" type="range" class="custom-range slider" data-show-value="true" min="0"
+          max="30" #Priority="ngModel" [(ngModel)]="service.formData.Priority" id="formControlRange" required />
+        <output class="clearfix font-weight-bold text-primary" id="PriorityOutput" for="Priority"
+          id="PriorityOutput">{{service.formData.Priority}}</output>
+      </div>
+    </div>
+  </div>
+  <!-- Parent task -->
+  <div class="form-group row">
+    <label for="inputParentTask" class="col-sm-3 col-form-label">Parent Task</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-tasks" [class.green-icon]="TaskName.valid"
+              [class.red-icon]="ParentTask.invalid && ParentTask.touched && ParentTask.errors?.defaultSelected "></i>
+          </div>
+        </div>
+        <!-- [class.is-invalid]="!isValid && service.formData.ParentID==0" -->
+        <select name="ParentTask" #ParentTask="ngModel" [(ngModel)]="service.formData.ParentTask"
+          class="form-control form-control-sm" appSelectValidator>
+          <option value="0">Choose...</option>
+          <option *ngFor="let item of service.taskDetails" value="{{item.TaskId}}">{{item.TaskName}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <!-- Start Date -->
+  <div class="form-group row">
+    <label for="inputStartDate" class="col-sm-3 col-form-label">Start Date</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <!-- <input type="date" name="StartDate" #StartDate="ngModel"
+          value="{{service.formData.StartDate | date:'yyyy-M-d'}}" [(ngModel)]="service.formData.StartDate"
+          class="form-control"> -->
+        <input type="text" placeholder="MM/DD/YYYY" class="form-control" bsDatepicker name="StartDate"
+          #StartDate="bsDatepicker" [(ngModel)]="service.formData.StartDate "
+          [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY', adaptivePosition: true, containerClass: 'theme-blue' }" required>
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i (click)="StartDate.show()" [attr.aria-expanded]="StartDate.isOpen" class="fas fa-calendar-alt"
+              [class.green-icon]="StartDate.valid" [class.red-icon]="StartDate.invalid && StartDate.touched"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Date -->
+  <div class="form-group row">
+    <label for="inputEndDate" class="col-sm-3 col-form-label">End Date</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+
+        <input type="text" placeholder="MM/DD/YYYY" class="form-control" bsDatepicker name="EndDate"
+          #EndDate="bsDatepicker"
+          [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY', adaptivePosition: true, containerClass: 'theme-blue' }"
+          [(ngModel)]="service.formData.EndDate" required>
+
+        <div class=" input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i (click)="EndDate.show()" [attr.aria-expanded]="EndDate.isOpen" class="fas fa-calendar-alt"
+              [class.green-icon]="EndDate.valid" [class.red-icon]="EndDate.invalid && EndDate.touched"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-sm-6">
+        <button class="btn btn-success btn-sm btn-block" type="submit" [disabled]="form.invalid"><i
+            class="far fa-save"></i>
+          Add\Update Task</button></div>
+      <div class="col-sm-6">
+        <button class="btn btn-success btn-sm btn-block" type="reset"><i class="fas fa-retweet"></i>
+          Reset</button></div>
+    </div>
+  </div>
+</form>

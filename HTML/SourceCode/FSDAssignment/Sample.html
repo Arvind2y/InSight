@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+    <body>
+        <form id="form1" onsubmit="return showFormvalue() ">
+            First name: <input type="text" name="fname" class="" value="David"><br>
+            Last name: <input type="text" name="lname" value="Beckham"><br>
+            <input type="submit" value="Submit">
+            <label id="lblFormValue"></label>
+        </form>
+
+        <script>
+
+            // #18. Write a JavaScript function to get the values of First and Last name of the following form. Sample HTML file :
+            function showFormvalue() {
+                formObject = document.forms['form1'];
+                txtFname = formObject.elements["fname"];
+                txtLname = formObject.elements["lname"];
+                //alert(txtFname.value);
+                console.log(`FirstName:  ${txtFname.value}, LastName: ${txtLname.value}`);
+                document.querySelector("#lblFormValue").innerHTML = `FirstName:  ${txtFname.value}, LastName: ${txtLname.value}`;
+                return false;
+            }
+        </script>
+    </body>
+
+</html>

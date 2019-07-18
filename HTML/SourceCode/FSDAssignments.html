@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FSD Javascript Assignments</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <style>
+            .blockquote-footer { color: red; background: yellow; }
+            pre { background: var(--bg3); padding: 5px 20px;
+                box-shadow: 0px 0px 15px rgba(0,0,0,0.08), 0px 0px 4px rgba(0,0,0,0.05); }
+        </style>
+    </head>
+
+    <body>
+        <!-- html5 -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">FSD Assignments</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">HTML
+                            <!-- <span class="sr-only">(current)</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Javascript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">C#</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">Profile</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">01_HTML_Assignment1</a>
+                            <a class="dropdown-item" href="#">02_HTML_Assignment2</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <main style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <section class="col main-section ">
+                        <!-- <div class="jumbotron">
+                            <h1 class="display-4">FSD Assignment Solutions!</h1>
+                            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling
+                                extra attention to featured content or information.</p>
+                            <hr class="my-4">
+                            <p>It uses utility classes for typography and spacing to space content out within the
+                                larger container.</p>
+                            <a class="btn btn-primary btn-lg" href="#" role="button">Create New Contact</a>
+                        </div> -->
+
+                        <div class="card">
+                            <div class="card-header">Javascript Assignments</div>
+                            <div class="card-body">
+                                <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5>
+                                <p class="card-text">1. Write a JavaScript program to display the current day and time
+                                    in the following format.
+                                    <br><strong>Sample Output</strong> : Today is: Friday.
+                                    <br><strong>Current time is</strong>: 4 PM : 50 : 22
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+
+(function ShowCurrentDayNTime() {
+    
+    var currentDateTime = new Date();
+    var hour = currentDateTime.getHours();
+    var minute = currentDateTime.getMinutes();
+    var second = currentDateTime.getSeconds();
+    var temp = ((hour > 12) ? hour - 12 : hour);
+    
+    if (hour === 0)
+    temp = '12';
+    
+    temp += (hour >= 12) ? ' PM ' : ' AM ';
+    temp += ((minute < 10) ? ': 0': ' : ') + minute;
+    temp += ((second < 10) ? ': 0': ' : ') + second;
+    
+    console.log('Today is: '+ weekdays[currentDateTime.getDay()]);
+    console.log("Current time is: " + temp);
+})();
+</pre>
+                                <button class="btn btn-primary" id="btnCurrentDateTime" name="btnCurrentDateTime">Show
+                                    Current Date N Time </button>
+                                <br>
+                                <strong>Output:</strong>
+                                <p> <label id="lblCurrentDateTime"></label></p>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">2. Write a JavaScript program to print the contents of the current
+                                    window.</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+var el = document.querySelector("#btnPrint");
+el.addEventListener("click", function(){ window.print();}, false);</pre>
+                                Demo:
+                                <button class="btn btn-primary" id="btnPrint" name="btnPrint">Print This Page</button>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">3. Write a JavaScript program to get the current date.
+                                    <br> <strong>Expected Output :</strong> mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy,
+                                    dd/mm/yyyy
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function formatDate(date, format) {
+    
+    var mm = date.getMonth() + 1;
+    var day = date.getDate();
+    var yr = date.getFullYear();
+
+    if (format == 'mm/dd/yyyy') {
+        outPutDate = mm + "/" + day + "/" + yr;
+    }
+    else if (format == 'mm-dd-yyyy') {
+        outPutDate = mm + "-" + day + "-" + yr;
+    }
+    else if (format == 'dd/mm/yyyy') {
+        outPutDate = day + "/" + mm + "/" + yr;
+    }
+    else if (format == 'dd-mm-yyyy') {
+        outPutDate = day + "-" + mm + "-" + yr;
+    }
+    else {
+        outPutDate = '<br/>';
+        outPutDate += mm + "-" + day + "-" + yr + '<br/>';
+        outPutDate += mm + "/" + day + "/" + yr + '<br/>';
+        outPutDate += day + "/" + mm + "/" + yr + '<br/>';
+        outPutDate += day + "-" + mm + "-" + yr + '<br/>';
+    }
+    console.log(outPutDate);
+
+    document.querySelector("#lblShowDate").innerHTML = `Format : [${format}] <strong> ${outPutDate}</strong>`;
+}
+// )(new Date(), ''); : To call automatically
+document.querySelector("#btnShowDate").addEventListener("click", () => 
+    formatDate(new Date(), document.querySelector("#dateFormat").value), true);
+                            
+                                            </pre>
+                                <div class="row">
+                                    <div class="col-md-2"><strong>Select Date Format :</strong></div>
+                                    <div class="col-md-3">
+                                        <select id="dateFormat" class="form-control">
+                                            <option>mm/dd/yyyy</option>
+                                            <option>mm-dd-yyyy</option>
+                                            <option>dd/mm/yyyy</option>
+                                            <option>dd-mm-yyyy</option>
+                                            <option selected>All</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-primary" id="btnShowDate" name="btnShowDate">Show Date</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        Output:</div>
+                                    <div class="col-md-3"> <label id="lblShowDate"></label></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">4. Write a JavaScript program where the program takes a random
+                                    integer
+                                    between 1 to 10, the user is then prompted to input a guess number. If the user
+                                    input matches with guess number, the program will display a message "Good Work"
+                                    otherwise display a message "Not matched".
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+&lt;p&gt;Click the button to see Guess match result!&lt;/p&gt;
+&lt;input type="number" id="txtGuessNum" min="1" max="10" required &gt;
+&lt;button  id="btnGuess" &gt;Try it &lt;/button &gt;
+&lt;p id="guessMessage"&gt; &lt;/p &gt;
+&lt;script&gt;                                
+function getGuessNumber() {
+    var el = document.querySelector("#txtGuessNum");
+        console.log(`TxtGuessNum:${el.value}`);
+    var guessNo=Math.floor((Math.random() * 10) + 1);
+        console.log(`Guess:${guessNo}`);
+
+    document.querySelector("#guessMessage").innerHTML= 
+    (guessNo ==el.value ? "Good Work" : "Not Matched!");
+}
+
+var elBtn = document.querySelector("#btnGuess");
+elBtn.addEventListener("click",getGuessNumber,false);
+&lt;/script&gt;
+                                  </pre>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4"><input type="number" id="txtGuessNum" class="form-control"
+                                                placeholder="Enter first number"></div>
+
+                                        <div class="col-md-4"><button class="btn btn-primary" id="btnGuess" name="btnGuess">Guess
+                                                No</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <strong>Output:</strong><label id="guessMessage"></label>
+
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">5. Write a JavaScript program to calculate multiplication and
+                                    division
+                                    of two numbers (input from user).</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+// Perform the calculation as per selected operator
+function calculate() {
+    var num1 = document.querySelector("#txtFirstNo").value;
+    var num2 = document.querySelector("#txtSecondNo").value;
+    var operator = document.querySelector("#operators").value;
+
+    var result = eval(num1 + operator + num2);
+    document.querySelector("#lblMultiply").innerHTML = ` ${num1} <span class='text-danger font-weight-bold'> ${operator} </span> ${num2} = <strong> ${result}</strong>`;
+}
+
+document.querySelector("#btnCalculate").addEventListener("click", calculate, true);
+                                    </pre>
+                                Demo:
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-4"><input type="number" class="form-control" placeholder="Enter first number"
+                                                id="txtFirstNo"></div>
+                                        <div class="col-md-4"><input type="number" class="form-control" placeholder="Enter second number"
+                                                id="txtSecondNo"></div>
+                                        <div class="col-md-2">
+                                            <select id="operators" class="form-control">
+                                                <option>+</option>
+                                                <option>-</option>
+                                                <option selected>*</option>
+                                                <option>/</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn  btn-outline-info" id="btnCalculate" name="btnMultiply">Calculate</button>
+
+                                        </div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblMultiply"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">6. Write a JavaScript program to get the website URL (loading
+                                        page) & print on console.</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+var el = document.querySelector("#btnUrl");
+el.addEventListener("click", function(){document.URL;}, false);</pre>
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <button class="btn btn-primary" id="btnUrl" name="btnUrl">Get URL</button>
+                                            </div>
+                                            <div class="col-md-10"> Output: <label id="lblWebsiteUrl"></label></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">7. Write a JavaScript program to capitalize the first letter
+                                        of
+                                        each word of a given string.</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+// Capitalize the first letter of input string
+function capitalizeWord(nonCapitalized)
+{
+    //var nonCapitalized = "An arrow function expression has a shorter syntax";
+    var capitalized = nonCapitalized.toLowerCase().split(' ')
+    .map( w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+                                    </pre>
+                                    Demo:
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtCapitalizeWord" class="form-control"
+                                                placeholder="Enter non capitalized sentence"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnCapitalizeWord"
+                                                name="btnCapitalizeWord">Capitalize
+                                                Word</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblCapitalizeWord"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">
+                                        8. Write a JavaScript program to check if a given string contains
+                                        equal number of p's and s's present.
+                                        Sample output :
+                                        Input string : paatpss
+                                        Output : true
+                                        Input string : paatps
+                                        Output : false
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+// #8 check if a given string contains equal number of p's and s's present
+function countChar(input, chartoCount) {
+    var regExp = new RegExp(chartoCount, "gi");
+    return string.match(regExp).length;;
+}
+
+//#8 Count the no of p and s
+function isCountSame(inputStr) {
+    var el = document.querySelector("#lblCountSame");
+
+    if (countChar(inputStr, 'p') === countChar(inputStr, 's')) {
+        el.innerHTML = `<strong> True </strong>`;
+    } else { el.innerHTML = `<strong> False </strong>`; }
+
+}
+
+document.querySelector("#btnCountSame").addEventListener("click", 
+    () => isCountSame(document.querySelector("#txtCountSame").value), true);
+
+</pre>
+                                    Demo:
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtCountSame" class="form-control"
+                                                placeholder="Enter string to find character count"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnCountSame" name="btnCountSame">CountSame?</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblCountSame"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">
+                                        9. Write a JavaScript program to create a new string of 4 copies
+                                        of the last 3 characters of a given original string. The length of the given
+                                        string
+                                        must be 3 and above.
+                                        Sample input 1: "Python 3.0"
+                                        Output 1: 3.03.03.03.0
+                                        Input 2: "JS"
+                                        OUTPUT2 :false
+                                        Input3 : JavaScript
+                                        Output3: iptiptiptipt.</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+function getCopiedString(inputStr) {
+    var el = document.querySelector("#lblStrCopies");
+    var noOfCopies = 4; var i = 0;
+    inputStr = inputStr.trim();
+    var str = inputStr.substring(inputStr.length - 3);
+
+    var outPutstring = '';
+    if (inputStr.length > 2) {
+        (() => {
+            for (i = 0; i < noOfCopies; i++) { outPutstring += str; }
+        })();
+        el.innerHTML = ` ${outPutstring} `;
+    } else { el.innerHTML = ` False `; }
+}
+
+document.querySelector("#btnStrCopies").addEventListener("click",
+    () => getCopiedString(document.querySelector("#txtStrCopies").value), true);
+                                            </pre>
+                                    Demo:
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtStrCopies" class="form-control"
+                                                placeholder="Enter string to create copies : Python 3.0"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnStrCopies" name="btnStrCopies">Create
+                                                String copies</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblStrCopies"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <p class="card-text">10. Write a JavaScript program to swap the first and last
+                                        elements
+                                        of a given inputArray of integers. The inputArray length should be at least 1.</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+// #10 swap the first and last elements of a given inputArray of integers
+function swapArray(inputStr) {
+    if (inputStr != '' && inputStr.indexOf(',') != -1) {
+        var inputArr = inputStr.split(',');
+
+        if (inputArr.length >= 1) {
+            [inputArr[0], inputArr[inputArr.length - 1]] = [inputArr[inputArr.length - 1], inputArr[0]];
+            // var swapArr = inputArr.trim().toLowerCase().split('').sort().join('');
+        }
+        else {
+            document.querySelector("#lblSwap").innerHTML = `<strong> Please input array of minimum length 1</strong>`;
+            return;
+        }
+    } else {
+        document.querySelector("#lblSwap").innerHTML = `<strong>Not a valid array!</strong>`;
+        return;
+    }
+
+    document.querySelector("#lblSwap").innerHTML = `<strong> ${inputArr}</strong>`;
+}
+document.querySelector("#btnSwap").addEventListener("click", 
+() => swapArray(document.querySelector("#txtSwap").value), true);
+                            
+</pre>
+                                    Demo:
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtSwap" class="form-control"
+                                                placeholder="Please input like: 1, 2, 3, 4"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnSwap" name="btnSwap">Swap</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblSwap"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <p class="card-text">11. Write a JavaScript function that reverses a number. Using
+                                        built in functions.
+                                        Example x = 32243;
+                                        Expected Output : 34223
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+//reverse the input string
+function reverseInputWord(input) {
+    var reversedString = input.split('').reverse().join('');
+    document.querySelector("#lblReverseWord").innerHTML = `Output value: <strong> ${reversedString}</strong>`;
+}
+
+document.querySelector("#btnReverseWord").addEventListener("click", 
+() => reverseInputWord(document.querySelector("#txtReverseWord").value), true);
+                            </pre>
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtReverseWord" class="form-control"
+                                                placeholder="Enter the number to be reversed"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnReverseWord" name="btnReverseWord">Reverse</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblReverseWord"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">12. Write a JavaScript function that returns a passed string
+                                        with
+                                        letters in alphabetical order. Using built in functions.
+                                        <Br> Example string : 'webmaster'
+                                        Expected Output : 'abeemrstw'
+                                        <br>Note: Assume punctuation and numbers symbols are not included in the passed
+                                        string.
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+function alphabeticalOrder(nonAlphabetical) {
+
+    var alphabeticalStr = nonAlphabetical.trim().toLowerCase().split('').sort().join('');
+    document.querySelector("#lblAlphabetical").innerHTML = `<strong> ${alphabeticalStr}</strong>`;
+}
+document.querySelector("#btnAlphabetical").addEventListener("click", () => 
+    alphabeticalOrder(document.querySelector("#txtAlphabetical").value), true);
+</pre>
+                                    Demo:
+                                    <div class="row">
+                                        <div class="col-md-9"><input type="text" id="txtAlphabetical" class="form-control"></div>
+                                        <div class="col-md-3"><button class="btn btn-primary" id="btnAlphabetical" name="btnAlphabetical">Alphabetical
+                                                Word</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblAlphabetical"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">13. Write a JavaScript function that accepts a string as a
+                                        parameter and find the longest word within the string. Using builtin functions.
+                                        Example string : 'Web Development Tutorial'
+                                        Expected Output : 'Development'
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+var inputStr = "Web Development Tutorial";
+
+function findLongestWord(input){
+    return input.split(' ').sort((a, b) => b.length - a.length )[0];
+}
+console.log(findLongestWord(inputStr));
+                                       </pre>
+                                    <div class="row">
+                                        <div class="col-md-6"> <input type="text" id="txtLongestWord" class="form-control"></div>
+                                        <div class="col-md-6"><button class="btn btn-primary" id="btnLongestWord" name="btnLongestWord">Find
+                                                Longest
+                                                Word</button></div>
+                                    </div>
+                                    <br>
+                                    Output: <label id="lblLongestWord"></label>
+                                </div>
+                                <hr>
+                                <div class="card-body">
+                                    <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                    <p class="card-text">14. Write a JavaScript function to extract unique characters
+                                        from
+                                        a string.
+                                        <br>
+                                        Example string : "thequickbrownfoxjumpsoverthelazydog"
+                                        <br>
+                                        Expected Output: "thequickbrownfxjmpsvlazydg"
+                                    </p>
+                                    <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                    <pre>
+function uniqueWord(nonUniqueStr) {
+
+    const uniqueStr = nonUniqueStr.split('').filter((item, i, ar) => (ar.indexOf(item) === i)).join('');
+    document.querySelector("#lblUniqueStr").innerHTML = `Unique string: <strong> ${uniqueStr}</strong>`;
+}
+document.querySelector("#btnUniqueStr")
+        .addEventListener("click", 
+        () => reverseInputWord(document.querySelector("#txtUniqueStr").value), true);
+                            
+                                           </pre>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text" id="txtUniqueStr" class="form-control" placeholder="Enter non unique string">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-primary " id="btnUniqueStr" name="btnUniqueStr">Unique
+                                                Characters word</button>
+                                        </div>
+                                    </div>
+
+
+                                    <br>
+                                    Output: <label id="lblUniqueStr"></label>
+                                </div>
+                                <hr>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">15. Write a JavaScript function to get the number of occurrences
+                                    of each letter in specified string.
+                                    Sample input: The quick brown fox jumps over the lazy dog
+                                    Sample Output:
+                                    "T":1,"h":2,"e":3,"q":1,"u":2,"i":1,"c":1,"k":1,"b":1,"r":2,"o":4,"w":1,"n":1,"f":1,"x":1,"j":1,"m":1,"p":1,"s":1,"v":1,"t":1,"l":1,"a":1,"z":1,"y":1,"d":1,"g":1
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function getCharacterCount(inputstring) {
+
+    var charArray = inputstring.replace(/ /g, '').split("");
+    var countedChars = charArray.reduce(function (charsArr, curChar) {
+        if (curChar in charsArr) {
+            charsArr[curChar]++;
+        }
+        else {
+            charsArr[curChar] = 1;
+        }
+        return charsArr;
+    }, {});
+
+    var result = Object.keys(countedChars).map(function (key) {
+        return ' "' + key + '":' + countedChars[key];
+    });
+
+    console.log(result);
+    document.querySelector("#lblCharCount").innerHTML = `<strong> ${result}</strong>`;
+}
+document.querySelector("#btnCharCount").addEventListener("click", () =>
+    getCharacterCount(document.querySelector("#txtCharCount").value), true);
+</pre>
+                                Demo:
+                                <div class="row">
+                                    <div class="col-md-9"><input type="text" id="txtCharCount" class="form-control"
+                                            placeholder="Enter the string"></div>
+                                    <div class="col-md-3"><button class="btn btn-primary" id="btnCharCount" name="btnCharCount">Alphabetical
+                                            Word</button></div>
+                                </div>
+                                <br>
+                                Output: <label id="lblCharCount"></label>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">16. Write a JavaScript function that generates a string id
+                                    (specified length) of random characters.
+                                    Sample character list:
+                                    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+                                    Length : 8
+                                    Output : XppJs2BC
+
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function randomString(ranLength) {
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var randomstring = '';
+    for (var i = 0; i < ranLength; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum, rnum + 1);
+    }
+    document.querySelector("#lblRandomStr").innerHTML = `<strong> ${randomstring}</strong>`;
+}
+
+document.querySelector("#btnRandomStr").addEventListener("click", () =>
+randomString(document.querySelector("#txtRandomStr").value), true);
+</pre>
+                                Demo:
+                                <div class="row">
+                                    <div class="col-md-9"><input type="number" id="txtRandomStr" class="form-control"
+                                            placeholder="Enter length of random characters"></div>
+                                    <div class="col-md-3"><button class="btn btn-primary" id="btnRandomStr" name="btnRandomStr">Random
+                                            Chars</button></div>
+                                </div>
+                                <br>
+                                Output: <label id="lblRandomStr"></label>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">17. Write a JavaScript function to find longest substring in a
+                                    given a string without repeating characters.
+                                    Sample Input: google.com
+                                    Sample Output:gle.com
+                                    Sample input : example.com
+                                    Sample output:xample.co
+
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function longestWord(input) {
+    var chars = input.split('');
+    var curr_char;
+    var str = "";
+    var longest_string = "";
+    var hash = {};
+    for (var i = 0; i < chars.length; i++) {
+        curr_char = chars[i];
+        if (!hash[chars[i]]) {
+            str += curr_char;
+            hash[chars[i]] = { index: i };
+        }
+        else {
+            if (longest_string.length <= str.length) {
+                longest_string = str;
+            }
+            var prev_dupeIndex = hash[curr_char].index;
+            var str_FromPrevDupe = input.substring(prev_dupeIndex + 1, i);
+            str = str_FromPrevDupe + curr_char;
+            hash = {};
+            for (var j = prev_dupeIndex + 1; j <= i; j++) {
+                hash[input.charAt(j)] = { index: j };
+            }
+        }
+    }
+    var restult = longest_string.length > str.length ? longest_string : str;
+    document.querySelector("#lblLongestStr").innerHTML = `<strong> ${restult}</strong>`;
+}
+
+document.querySelector("#btnLongestStr").addEventListener("click", () =>
+    longestWord(document.querySelector("#txtLongestStr").value), true);
+                                    </pre>
+                                Demo:
+                                <div class="row">
+                                    <div class="col-md-9"><input type="text" id="txtLongestStr" class="form-control"
+                                            placeholder="google.com"></div>
+                                    <div class="col-md-3"><button class="btn btn-primary" id="btnLongestStr" name="btnLongestStr">Longest
+                                            Word</button></div>
+                                </div>
+                                <br>
+                                Output: <label id="lblLongestStr"></label>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">18. Write a JavaScript function to get the values of First and
+                                    Last name of the following form.
+                                    Sample HTML file :
+                                    <!-- <pre> -->
+                                    <!DOCTYPE html>
+                                    <html>
+
+                                        <body>
+                                            <form id="form1" onsubmit="return showFormvalue()">
+                                                First name: <input type="text" name="fname" class="form-control" value="Arvind"><br>
+                                                Last name: <input type="text" name="lname" class="form-control" value="Kumar"><br>
+                                                <input type="submit" class="btn btn-primary" value="Submit">
+                                            </form>
+                                        </body>
+
+                                    </html>
+                                    <!-- </pre> -->
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function showFormvalue() {
+    formObject = document.forms['form1'];
+    txtFname = formObject.elements["fname"];
+    txtLname = formObject.elements["lname"];
+    //alert(txtFname.value);
+    console.log(`FirstName:  ${txtFname.value}, LastName: ${txtLname.value}`);
+    document.querySelector("#lblFormValue").innerHTML = `FirstName:  ${txtFname.value}, LastName: ${txtLname.value}`;
+    return false;
+}
+                                </pre>
+                                <br>
+                                Output: <label id="lblFormValue" class="badge"></label>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">19. Here is a sample html file with a submit button. Write a
+                                    JavaScript function to get the value of the href, hreflang, rel,
+                                    target, and type attributes of the
+                                    specified link.
+                                    <!DOCTYPE html>
+                                    <html>
+
+                                        <head>
+                                            <meta charset=utf-8 />
+                                        </head>
+
+                                        <body>
+                                            <p>
+                                                <b> Link Element: </b><a id="linkElement" type="text/html" hreflang="en-us"
+                                                    rel="nofollow" target="_self" href="https://www.gogole.com/">Google.com</a></p>
+                                            <button onclick="getAttributes()" class="btn btn-primary">Click here to get
+                                                attributes value</button>
+                                        </body>
+
+                                    </html>
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function getAttributes() {
+    var linkElement = document.querySelector("#linkElement");
+    var outputText = `href : ${linkElement.href} <br/> hreflang : ${linkElement.hreflang} <br/> 
+    rel : ${linkElement.rel} <br/> target: ${linkElement.target} <br/> type : ${linkElement.type}`;
+    document.querySelector("#lblLinkElement").innerHTML = `${outputText}`;
+}                                    
+                                </pre>
+                                Output:
+                                <br>
+                                <label id="lblLinkElement"></label>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <h5>Assignment ID: 06 - JAVASCRIPT Assignment - 1 DOTNET</h5> -->
+                                <p class="card-text">20. Write a JavaScript function to add rows to a table.
+                                    Sample HTML file :
+                                    <!DOCTYPE html>
+                                    <html>
+
+                                        <head>
+                                            <meta charset=utf-8 />
+                                            <title>Insert row in a table</title>
+                                        </head>
+
+                                        <body>
+                                            <table id="sampleTable" class="table table-bordered">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">#Col1</th>
+                                                        <th>#Col2</th>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td>Row1 cell1</td>
+                                                    <td>Row1 cell2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Row2 cell1</td>
+                                                    <td>Row2 cell2</td>
+                                                </tr>
+                                            </table><br>
+                                            <input type="button" class="btn btn-primary" onclick="insertNewRow()" value="Insert new Row">
+                                        </body>
+
+                                    </html>
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function insertNewRow() {
+
+    var table = document.querySelector("#sampleTable");
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    var colCount = table.rows[0].cells.length;
+    console.log(colCount);
+    for (var i = 0; i < colCount; i++) {
+        var newcell = row.insertCell(i);
+        newcell.innerHTML = `Row${rowCount + 1} Cell${i + 1}`;
+    }
+}
+                                </pre>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">21. Write a JavaScript function
+                                    that accept row, column, (to identify a
+                                    particular cell) and a string to update the content of that cell.
+                                    Sample HTML file :
+                                    <!DOCTYPE html>
+                                    <html>
+
+                                        <head>
+                                            <meta charset=utf-8 />
+                                            <title>Change the content of a cell</title>
+                                        </head>
+
+                                        <body>
+                                            <table id="sampleTable2" class="table table-bordered">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">#Col1</th>
+                                                        <th>#Col2</th>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td>Row1 cell1</td>
+                                                    <td>Row1 cell2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Row2 cell1</td>
+                                                    <td>Row2 cell2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Row3 cell1</td>
+                                                    <td>Row3 cell2</td>
+                                                </tr>
+                                            </table>
+                                            <form>
+                                                <input type="button" class="btn btn-primary" onclick="changeContent()"
+                                                    value="Change content">
+                                            </form>
+                                        </body>
+
+                                    </html>
+
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function changeContent() {
+    var table = document.querySelector("#sampleTable2");
+    rowNum = window.prompt("Input the Row number(0,1,2)", "0");
+    cellNo = window.prompt("Input the Column number(0,1)", "0");
+    content = window.prompt("Input the content");
+    table.rows[parseInt(rowNum, 10) + 1].cells[parseInt(cellNo, 10)].innerHTML = content
+}
+</pre>
+
+                            </div>
+                            <br>
+                            <div class="card-body">
+                                <p class="card-text">22. 22. Write a JavaScript program to remove items from a dropdown
+                                    list. Sample
+                                    <pre>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>Remove items from a dropdown list</title>
+    </head>
+    <body>
+        <form>
+            <select id="colorSelect">
+                <option>Red</option>
+                <option>Green</option>
+                <option>White</option>
+                <option>Black</option>
+            </select>
+            <input type="button" onclick="removecolor()" class="btn btn-outline-primary"  value="Select and Remove">
+        </form>
+    </body>
+</html>
+                                    </pre>
+
+                                </p>
+                                <h6 class="card-subtitle mb-2 text-muted">Solution:</h6>
+                                <pre>
+function removecolor() {
+    var ctrl = document.querySelector("#colorSelect");
+    ctrl.remove(ctrl.selectedIndex);
+}
+document.querySelector("#btnRemoveOpt").addEventListener("click", () =>
+removecolor(), true);
+                                    </pre>
+                                Demo:
+                                <div class="row">
+                                    <div class="col-md-3"><button class="btn btn-primary" id="btnRemoveOpt">Remove
+                                            Color</button></div>
+                                </div>
+                                <br>
+                                Output: <label id="lblLongestStr"></label>
+                            </div>
+                            <hr>
+
+                            <!-- Card End  -->
+                    </section>
+
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="text-center bg-light">
+            <hr>
+            <p>Contact Manager App built in Training in 2018</p>
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+            <p>Copyright &copy; 2018</p>
+        </footer>
+
+        <script>
+
+            // # 1 Write a JavaScript program to display the current day and time in the following format. 
+            var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            //alert(document.querySelector("#btnCurrentDateTime"));
+            function ShowCurrentDayNTime() {
+
+                var currentDateTime = new Date();
+                var hour = currentDateTime.getHours();
+                var minute = currentDateTime.getMinutes();
+                var second = currentDateTime.getSeconds();
+                var temp = ((hour > 12) ? hour - 12 : hour);
+
+                if (hour === 0)
+                    temp = '12';
+
+                temp += (hour >= 12) ? ' PM ' : ' AM ';
+                temp += ((minute < 10) ? ': 0' : ' : ') + minute;
+                temp += ((second < 10) ? ': 0' : ' : ') + second;
+
+                console.log(`Today is: ${weekdays[currentDateTime.getDay()]}`);
+                console.log(`Current time is: ${temp}`);
+                document.querySelector("#lblCurrentDateTime").innerHTML = `Today is: <strong> ${weekdays[currentDateTime.getDay()]}
+                    </strong><Br> Current time is: <strong>${temp} </strong>`;
+
+            }
+            document.querySelector("#btnCurrentDateTime").addEventListener("click", ShowCurrentDayNTime, false);
+
+            // # 2. Write a JavaScript program to print the contents of the current window. 
+            var el = document.querySelector("#btnPrint");
+            el.addEventListener("click", function () { window.print(); }, false);
+
+            // #3. Write a JavaScript program to get the current date. 
+            // (
+            function formatDate(date, format) {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var ampm = hours >= 12 ? 'pm' : 'am';
+                hours = hours % 12;
+                hours = hours ? hours : 12; // the hour '0' should be '12'
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                var strTime = hours + ':' + minutes + ' ' + ampm;
+                var outPutDate = '';
+
+                var mm = date.getMonth() + 1;
+                var day = date.getDate();
+                var yr = date.getFullYear();
+
+                if (format == 'mm/dd/yyyy') {
+                    outPutDate = mm + "/" + day + "/" + yr;
+                }
+                else if (format == 'mm-dd-yyyy') {
+                    outPutDate = mm + "-" + day + "-" + yr;
+                }
+                else if (format == 'dd/mm/yyyy') {
+                    outPutDate = day + "/" + mm + "/" + yr;
+                }
+                else if (format == 'dd-mm-yyyy') {
+                    outPutDate = day + "-" + mm + "-" + yr;
+                }
+                else {
+                    outPutDate = '<br/>';
+                    outPutDate += mm + "-" + day + "-" + yr + '<br/>';
+                    outPutDate += mm + "/" + day + "/" + yr + '<br/>';
+                    outPutDate += day + "/" + mm + "/" + yr + '<br/>';
+                    outPutDate += day + "-" + mm + "-" + yr + '<br/>';
+                }
+                console.log(outPutDate);
+
+                document.querySelector("#lblShowDate").innerHTML = `Format : [${format}] <br/> <strong> ${outPutDate}</strong>`;
+            }
+            // )(new Date(), ''); : To call automatically
+            document.querySelector("#btnShowDate").addEventListener("click", () => formatDate(new Date(), document.querySelector("#dateFormat").value), true);
+
+
+            // # 4. Write a JavaScript program where the program takes a random integer between 1 to 10, the user is then prompted to input a guess number. 
+            function getGuessNumber() {
+                var el = document.querySelector("#txtGuessNum");
+                console.log(`TxtGuessNum:${el.value}`);
+                var guessNo = Math.floor((Math.random() * 10) + 1);
+                console.log(`Guess:${guessNo}`);
+
+                document.querySelector("#guessMessage").innerHTML =
+                    (guessNo == el.value ? "Good Work" : "Not Matched!");
+            }
+
+            var elBtn = document.querySelector("#btnGuess");
+            elBtn.addEventListener("click", getGuessNumber, false);
+
+            //#5 Perform the calculation as per selected operator
+            function calculate() {
+                var num1 = document.querySelector("#txtFirstNo").value;
+                var num2 = document.querySelector("#txtSecondNo").value;
+                var operator = document.querySelector("#operators").value;
+
+                var result = eval(num1 + operator + num2);
+                document.querySelector("#lblMultiply").innerHTML = ` ${num1} <span class='text-danger font-weight-bold'> ${operator} </span> ${num2}  <strong> = ${result}</strong>`;
+            }
+            document.querySelector("#btnCalculate").addEventListener("click", calculate, true);
+
+            // #6. Write a JavaScript program to get the website URL (loading page) & print on console.
+            function getWebsiteUrl() {
+                var webURL = document.URL;
+                document.querySelector("#lblWebsiteUrl").innerHTML = `Website Url: <strong> ${webURL}</strong>`;
+            }
+            document.querySelector("#btnUrl").addEventListener("click", () => getWebsiteUrl(), true);
+
+            // #7 Capitalize the first letter of each word of a given string
+            function capitalizeWord(nonCapitalized) {
+                //var nonCapitalized = "An arrow function expression has a shorter syntax";
+                var capitalized = nonCapitalized.trim().toLowerCase().split(' ')
+                    .map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                document.querySelector("#lblCapitalizeWord").innerHTML = `<strong> ${capitalized}</strong>`;
+            }
+            document.querySelector("#btnCapitalizeWord").addEventListener("click", () => capitalizeWord(document.querySelector("#txtCapitalizeWord").value), true);
+
+            // #8 check if a given string contains equal number of p's and s's present
+            // Function to count character
+            function countChar(input, chartoCount) {
+                var regExp = new RegExp(chartoCount, "gi");
+                return input.match(regExp).length;;
+            }
+
+            // function to count same  Count the no of p and s
+            function isCountSame(inputStr) {
+                var el = document.querySelector("#lblCountSame");
+
+                if (countChar(inputStr, 'p') === countChar(inputStr, 's')) {
+                    el.innerHTML = `<strong> True </strong>`;
+                } else { el.innerHTML = `<strong> False </strong>`; }
+
+            }
+            document.querySelector("#btnCountSame").addEventListener("click", () => isCountSame(document.querySelector("#txtCountSame").value), true);
+
+
+            //#9. Write a JavaScript program to create a new string of 4 copies of the last 3 characters of a given original string. The length of the given string must be 3 and above
+            function getCopiedString(inputStr) {
+                var el = document.querySelector("#lblStrCopies");
+                var noOfCopies = 4; var i = 0;
+                inputStr = inputStr.trim();
+                var str = inputStr.substring(inputStr.length - 3);
+
+                var outPutstring = '';
+                if (inputStr.length > 2) {
+                    (() => {
+                        for (i = 0; i < noOfCopies; i++) { outPutstring += str; }
+                    })();
+                    el.innerHTML = ` ${outPutstring} `;
+                } else { el.innerHTML = ` False `; }
+            }
+
+            document.querySelector("#btnStrCopies").addEventListener("click",
+                () => getCopiedString(document.querySelector("#txtStrCopies").value), true);
+
+            // #10 swap the first and last elements of a given inputArray of integers
+            function swapArray(inputStr) {
+                if (inputStr != '' && inputStr.indexOf(',') != -1) {
+                    var inputArr = inputStr.split(',');
+
+                    if (inputArr.length >= 1) {
+                        [inputArr[0], inputArr[inputArr.length - 1]] = [inputArr[inputArr.length - 1], inputArr[0]];
+                        // var swapArr = inputArr.trim().toLowerCase().split('').sort().join('');
+                    }
+                    else {
+                        document.querySelector("#lblSwap").innerHTML = `<strong> Please input array of minimum length 1</strong>`;
+                        return;
+                    }
+                } else {
+                    document.querySelector("#lblSwap").innerHTML = `<strong>Not a valid array!</strong>`;
+                    return;
+                }
+
+                document.querySelector("#lblSwap").innerHTML = `<strong> ${inputArr}</strong>`;
+            }
+            document.querySelector("#btnSwap").addEventListener("click", () => swapArray(document.querySelector("#txtSwap").value), true);
+
+            // #11 reverses string
+            function reverseInputWord(input) {
+                var reversedString = input.split('').reverse().join('');
+                document.querySelector("#lblReverseWord").innerHTML = `Output value: <strong> ${reversedString}</strong>`;
+            }
+            document.querySelector("#btnReverseWord").addEventListener("click", () => reverseInputWord(document.querySelector("#txtReverseWord").value), true);
+
+            // #12 returns a passed string with letters in alphabetical order
+            function alphabeticalOrder(nonAlphabetical) {
+
+                var alphabeticalStr = nonAlphabetical.trim().toLowerCase().split('').sort().join('');
+                document.querySelector("#lblAlphabetical").innerHTML = `<strong> ${alphabeticalStr}</strong>`;
+            }
+            document.querySelector("#btnAlphabetical").addEventListener("click", () =>
+                alphabeticalOrder(document.querySelector("#txtAlphabetical").value), true);
+
+            //# 13 Find Longest Word
+            // var inputStr = "Web Development Tutorial";
+            function findLongestWord(input) {
+                var longestWord = input.split(' ').sort((a, b) => b.length - a.length)[0];
+                document.querySelector("#lblLongestWord").innerHTML = `Longest word is: <strong> ${longestWord}</strong>`;
+            }
+            document.querySelector("#btnLongestWord").addEventListener("click", () =>
+                findLongestWord(document.querySelector("#txtLongestWord").value), true);
+
+            // 14. Write a JavaScript function to extract unique characters from a string. 
+            function uniqueWord(nonUniqueStr) {
+                /*if the index of character in inputArray is equal to index then returns true else false.
+                    Filter receives the same arguments as map, and works very similarly. The only difference 
+                    is that the callback needs to return either true or false. If it returns true then the inputArray 
+                    keeps that element and if it returns false the element is filtered out.*/
+                //const nonUniqueStr = "thequickbrownfoxjumpsoverthelazydog";
+                //const uniqueStr = nonUniqueStr.split('').filter((item, i, ar) => { console.log(`${i}-${item} ${ar.indexOf(item)}`); return (ar.indexOf(item) === i) }).join('');
+
+                const uniqueStr = nonUniqueStr.split('').filter((item, i, ar) => (ar.indexOf(item) === i)).join('');
+                document.querySelector("#lblUniqueStr").innerHTML = `<strong> ${uniqueStr}</strong>`;
+            }
+            document.querySelector("#btnUniqueStr").addEventListener("click", () =>
+                uniqueWord(document.querySelector("#txtUniqueStr").value), true);
+
+            // # 15. Write a JavaScript function to get the number of occurrences of each letter in specified string. 
+            function getCharacterCount(inputstring) {
+
+                // var uchars = {};
+                // inputstring.replace(/\S/g, function(l){uchars[l] = (isNaN(uchars[l]) ? 1 : uchars[l] + 1);});
+
+                // var charCount = inputstring.split("").reduce(
+                //     (acc, el) => {
+                //         if (acc.hasOwnProperty(el))
+                //             acc[el]++;
+                //         else
+                //             acc[el] = 1;
+                //         return acc;
+                //     }, {}
+                // )
+
+                var charArray = inputstring.replace(/ /g, '').split("");
+                var countedChars = charArray.reduce(function (charsArr, curChar) {
+                    if (curChar in charsArr) {
+                        charsArr[curChar]++;
+                    }
+                    else {
+                        charsArr[curChar] = 1;
+                    }
+                    return charsArr;
+                }, {});
+
+                // var flattened = [0, 1, 2, 3].reduce(
+                //     (accumulator, currentValue) => accumulator.concat(currentValue),
+                //     []
+                // );
+
+                var result = Object.keys(countedChars).map(function (key) {
+                    return ' "'.concat(key, '":', countedChars[key]);
+                });
+
+                console.log(result);
+                document.querySelector("#lblCharCount").innerHTML = `<strong> ${result}</strong>`;
+            }
+            document.querySelector("#btnCharCount").addEventListener("click", () =>
+                getCharacterCount(document.querySelector("#txtCharCount").value), true);
+
+            //16. Write a JavaScript function that generates a string id (specified length) of random characters.
+            function randomString(ranLength) {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var randomstring = '';
+                for (var i = 0; i < ranLength; i++) {
+                    var rnum = Math.floor(Math.random() * chars.length);
+                    randomstring += chars.substring(rnum, rnum + 1);
+                }
+                document.querySelector("#lblRandomStr").innerHTML = `<strong> ${randomstring}</strong>`;
+            }
+
+            document.querySelector("#btnRandomStr").addEventListener("click", () =>
+                randomString(document.querySelector("#txtRandomStr").value), true);
+
+            // # 17. Write a JavaScript function to find longest substring in a given a string without repeating characters.
+            // O(n) time, O(1) space
+            // const lengthOfLongestSubstring = str => {
+            //     let result = [],
+            //         maxResult = 0;
+
+            //     for (let i = 0; i < str.length; i++) {
+            //         if (!result.includes(str[i])) {
+            //             result.push(str[i]);
+            //         } else {
+            //             maxResult = i;
+            //         }
+            //     }
+            //     //return maxResult;
+            //     document.querySelector("#lblLongestStr").innerHTML = `<strong> ${maxResult}</strong>`;
+            // }
+
+            function longestWord(input) {
+                var chars = input.split('');
+                var curr_char;
+                var str = "";
+                var longest_string = "";
+                var hash = {};
+                for (var i = 0; i < chars.length; i++) {
+                    curr_char = chars[i];
+                    if (!hash[chars[i]]) {
+                        str += curr_char;
+                        hash[chars[i]] = { index: i };
+                    }
+                    else {
+                        if (longest_string.length <= str.length) {
+                            longest_string = str;
+                        }
+                        var prev_dupeIndex = hash[curr_char].index;
+                        var str_FromPrevDupe = input.substring(prev_dupeIndex + 1, i);
+                        str = str_FromPrevDupe + curr_char;
+                        hash = {};
+                        for (var j = prev_dupeIndex + 1; j <= i; j++) {
+                            hash[input.charAt(j)] = { index: j };
+                        }
+                    }
+                }
+                var restult = longest_string.length > str.length ? longest_string : str;
+                document.querySelector("#lblLongestStr").innerHTML = `<strong> ${restult}</strong>`;
+            }
+
+            document.querySelector("#btnLongestStr").addEventListener("click", () =>
+                longestWord(document.querySelector("#txtLongestStr").value), true);
+
+            // #18. Write a JavaScript function to get the values of First and Last name of the following form. Sample HTML file :
+            function showFormvalue() {
+                formObject = document.forms['form1'];
+                txtFname = formObject.elements["fname"];
+                txtLname = formObject.elements["lname"];
+                //alert(txtFname.value);
+                console.log(`FirstName:  ${txtFname.value}, LastName: ${txtLname.value}`);
+                document.querySelector("#lblFormValue").innerHTML = `FirstName:  ${txtFname.value}, <br/> LastName: ${txtLname.value}`;
+                return false;
+            }
+
+            //19. Here is a sample html file with a submit button. Write a JavaScript function to get the value of the href, hreflang, rel, target, and type attributes of the specified link.
+            function getAttributes() {
+                var linkElement = document.querySelector("#linkElement");
+                var outputText = `href : ${linkElement.href} <br/> hreflang : ${linkElement.hreflang} <br/> rel : ${linkElement.rel} <br/> target: ${linkElement.target} <br/> type : ${linkElement.type}`;
+                document.querySelector("#lblLinkElement").innerHTML = `${outputText}`;
+            }
+
+            // 20. Write a JavaScript function to add rows to a table. 
+            function insertNewRow() {
+
+                var table = document.querySelector("#sampleTable");
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount);
+
+                var colCount = table.rows[0].cells.length;
+                console.log(colCount);
+                for (var i = 0; i < colCount; i++) {
+                    var newcell = row.insertCell(i);
+                    newcell.innerHTML = `Row${rowCount + 1} Cell${i + 1}`;
+                }
+            }
+
+            //21. Write a JavaScript function that accept row, column, (to identify a particular cell) and a string to update the content of that cell.
+            function changeContent() {
+                var table = document.querySelector("#sampleTable2");
+                rowNum = window.prompt("Input the Row number(0,1,2)", "0");
+                cellNo = window.prompt("Input the Column number(0,1)", "0");
+                content = window.prompt("Input the content");
+                table.rows[parseInt(rowNum, 10) + 1].cells[parseInt(cellNo, 10)].innerHTML = content
+            }
+
+            // 22.	Write a JavaScript program to remove items from a dropdown list. Sample HTML file :
+            function removecolor() {
+                var ctrl = document.querySelector("#colorSelect");
+                ctrl.remove(ctrl.selectedIndex);
+            }
+            document.querySelector("#btnRemoveOpt").addEventListener("click", () =>
+            removecolor(), true);
+
+        </script>
+    </body>
+
+</html>

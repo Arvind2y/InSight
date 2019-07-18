@@ -1,0 +1,87 @@
+﻿@model IEnumerable<POPS.DAL.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Supplier List</h2>
+
+<p>
+
+    <a href="@Url.Action("Create", "Supplier")" class="btn btn-success btn-sm " >
+        Create New
+        <span class="glyphicon glyphicon-plus" style="font-weight:300" aria-hidden="true"></span>
+    </a>
+</p>
+<table class="table table-striped">
+    <thead class="table-heading" >
+        <tr class="bg-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierAddress)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierAddress)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "glyphicon glyphicon-edit" }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                <a href="@Url.Action("Edit", "Supplier", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-edit" style="font-weight:300" aria-hidden="true"></span>
+                </a> |
+                <a href="@Url.Action("Details", "Supplier", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-file"  aria-hidden="true"></span>
+                </a>|
+                @*<a href="@Url.Action("Delete", "Supplier", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-trash" style=" color:darkred; font-weight:300" aria-hidden="true"></span>
+                </a>*@
+
+                <a onclick="Delete(@item.Id, '@item.SupplierNo')"  href="#" >
+                    <span class="glyphicon glyphicon-trash" style=" color:darkred; " aria-hidden="true"></span>
+
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var sucessMessage = '@TempData["SuccessMessage"]';
+            if (sucessMessage != '') {
+                alertify.success(sucessMessage);
+            }
+        });
+
+        $(function () {
+            alertify.defaults.theme.ok = "btn btn-success";
+            alertify.defaults.theme.cancel = "btn btn-warning";
+            //alertify.confirm().setting('modal', false);
+        });
+        function Delete(id, supNo) {
+            alertify.confirm('Supplier Delete!', 'Are you Sure to delete supplier [' + supNo + '] record?', function () {
+                window.location.href = '@Url.Action("Delete", "Supplier")/' + id;
+            }, null);
+        }
+    </script>
+    }

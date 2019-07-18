@@ -1,0 +1,15 @@
++---o App
+|   +---o Tasks-Details
+|   |   |-- Task-Details.component.ts|.html|.css
+|   |   |-- Task-Detail.component.ts|.html|.css
+|   |   |-- Task-Detail-list.component.ts|.html|.css
+|   |   |
+|   +---o Shared
+|   |   |--Task-Detail.service.ts
+|   |   |
+|   +---o Models
+|   |   |--Task.model.ts
+|   |   |
+|   |   |
+|   |---App.module.ts
+|--- Indext.html

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<POPS.DAL.Models.POMaster>
+
+@{
+    ViewBag.Title = "Purchase order";
+}
+
+<h2>Purchase Order List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr class="bg-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.PONumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PODate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupplierId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier.SupplierName)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PONumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PODate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.SupplierName)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "PurchaseOrders", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-edit" style="font-weight:300" aria-hidden="true"></span>
+                </a> |
+                <a href="@Url.Action("Details", "PurchaseOrders", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                </a>|
+                <a onclick="Delete(@item.Id, '@item.PONumber')" href="#">
+                    <span class="glyphicon glyphicon-trash" style=" color:darkred; " aria-hidden="true"></span>
+
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var sucessMessage = '@TempData["SuccessMessage"]';
+            if (sucessMessage != '') {
+                alertify.success(sucessMessage);
+            }
+        });
+
+        $(function () {
+            alertify.defaults.theme.ok = "btn btn-success";
+            alertify.defaults.theme.cancel = "btn btn-warning";
+        });
+        function Delete(id, itemCode) {
+            alertify.confirm('Item Delete!', 'Are you Sure to delete Purchase order [' + itemCode + '] record?', function () {
+                window.location.href = '@Url.Action("Delete", "PurchaseOrders")/' + id;
+            }, null);
+        }
+    </script>
+}

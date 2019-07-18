@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FSD Javascript Assignments</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <style>
+            .blockquote-footer {
+                color: red;
+                background: yellow;
+            }
+
+            pre {
+                background: var(--bg3);
+                padding: 5px 20px;
+                box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.08), 0px 0px 4px rgba(0, 0, 0, 0.05);
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- html5 -->
+
+        <main>
+            <div class="container">
+                <div class="row">
+                    <section class="col main-section ">
+
+                        <div class="card">
+                            <div class="card-header">jQUERY Assignments</div>
+                            <div class="card-body">
+                                <h5>Assignment ID: 07 - jQUERY Assignment - 1 DOTNET</h5>
+                                <p class="card-text">1. Scroll to the top of the page with jQuery.
+                                    <pre>
+                                    <!DOCTYPE html>
+                                    <html>
+                                    <head>
+                                   
+                                      <title>Scroll to the top of the page with jQuery</title>
+                                    </head>
+                                    <body>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                      <p>jquery</p>
+                                    <a href='#top'>Go Top</a>  
+                                    </body>
+                                    </html>
+                                </pre>
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+$(document).ready(function () {
+    $("a[href='#top']").click(function () {
+        $("html, body").animate({ scrollTop: 0 }, {
+            opacity: "show"
+          }, {
+            duration: "slow",
+            easing: "easein"
+          });
+        return false;
+    });
+
+    
+});
+</pre>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">2. How to detect a textbox's content has changed using jQuery?
+                                    <pre>
+                                        <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                        
+                                        <meta charset="utf-8">
+                                        <meta name="viewport" content="width=device-width">
+                                        <title>How to detect a textbox's content has changed using jQuery</title>
+                                        </head>
+                                        <body>
+                                        <form action="demo_form.asp">
+                                        First name: <input type="text" id="name1" name="fname"><br>
+                                        Last name: <input type="text" id="name2" name="lname"><br>
+                                        <input type="submit" value="Submit">
+                                        </form>
+                                        </body>
+                                        </html>
+                                        
+                                </pre>
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+$('#name1').on('input', function () {
+    document.querySelector("#lblInputChange").innerHTML=`Input text has been changed with 
+    : ${document.querySelector("#name1").value}`;
+});
+</pre>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        Output:</div>
+                                    <div class="col-md-3"> <label id="lblInputChange"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">3.Change button text using jQuery.
+                                    <pre>
+                                        <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                        <meta charset="utf-8">
+                                        <meta name="viewport" content="width=device-width">
+                                        <title>Change button text using jQuery.</title>
+                                        </head>
+                                        <body>
+                                        <input type='button' value='Cancel' id='button1'>
+                                        </body>
+                                        </html>
+                                        
+                                </pre>
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+document.querySelector("#btnChange").addEventListener("click", () =>
+$("#button1").prop('value', 'Save'), true);
+</pre>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <button class="btn  btn-outline-info" id="btnChange">Change Button</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">4. Add 3 new options to a drop-down list using jQuery.
+                                    <pre>
+                                        <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Add options to a drop-down list using jQuery.</title>
+</head>
+<body>
+<p>List of Colors :</p>
+<select id='myColors'>
+<option value="Red">Red</option>
+<option value="Green">Green</option>
+<option value="White">White</option>
+ <option value="Black">Black</option>
+ </select>
+ </body>
+ </html> 
+
+                                        
+                                </pre>
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+document.querySelector("#btnAddOptions").addEventListener("click", () =>
+addColorOption(), true);
+
+function addColorOption() {
+    var myOptions = {
+        val1: 'Blue',
+        val2: 'Orange',
+        val3: 'Aqua'
+    };
+    var mySelect = $('#myColors');
+    $.each(myOptions, function (val, text) {
+        mySelect.append(
+            $('<option></option>').val(val).html(text)
+        );
+    });
+}
+</pre>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <button class="btn  btn-outline-info" id="btnAddOptions">Add Colors</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <p class="card-text">5. Set background -image using jQuery CSS property.
+                                    <pre>
+                                        <!DOCTYPE html>
+                                        <html>
+                                        <head>
+                                        <meta charset="utf-8">
+                                        <meta name="viewport" content="width=device-width">
+                                        <title>Set background-image using jQuery CSS property.</title>
+                                        </head>
+                                        <body>
+                                            <div id="backgroundDiv" style="height: 400px;" ></div>
+                                        </body>
+                                        </html>
+                                        
+                                </pre>
+                                </p>
+                                <h6 class="card-subtitle mb-2 ">Solution:</h6>
+                                <pre>
+document.querySelector("#btnChange").addEventListener("click", () =>
+$("#button1").prop('value', 'Save'), true);
+</pre>
+
+                                <br>
+
+                            </div>
+                            <hr>
+                            <div class="row">
+                                    <div class="col-md-2">
+                                        <button class="btn  btn-outline-info" id="btnbackgroundImg">Set background Image</button>
+
+                                    </div>
+                                </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+
+
+        <footer class="text-center bg-light">
+            <hr>
+            <p>JQUERY DEMO in 2018</p>
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+            <p>Copyright &copy; 2018</p>
+        </footer>
+
+        <script>
+            $(document).ready(function () {
+
+                // # 1. Scroll to the top of the page with jQuery.
+                $("a[href='#top']").click(function () {
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    return false;
+                });
+
+                // #2. How to detect a textbox's content has changed using jQuery?
+                $('#name1').on('input', function () {
+                    document.querySelector("#lblInputChange").innerHTML = `Input text has been changed with : ${document.querySelector("#name1").value}`;
+                });
+
+                //#3.Change button text using jQuery.
+                document.querySelector("#btnChange").addEventListener("click", () =>
+                    $("#button1").prop('value', 'Save'), true);
+
+                //#4. Add 3 new options to a drop-down list using jQuery.
+                document.querySelector("#btnAddOptions").addEventListener("click", () =>
+                    addColorOption(), true);
+
+                function addColorOption() {
+                    var myOptions = {
+                        val1: 'Blue',
+                        val2: 'Orange',
+                        val3: 'Aqua'
+                    };
+                    var mySelect = $('#myColors');
+                    $.each(myOptions, function (val, text) {
+                        mySelect.append(
+                            $('<option></option>').val(val).html(text)
+                        );
+                    });
+                }
+
+                // # 5. Set background -image using jQuery CSS property.
+               document.querySelector("#btnbackgroundImg").addEventListener("click", () =>
+               $('#backgroundDiv').css('background-image',
+ 'url("https://images.pexels.com/photos/1084510/pexels-photo-1084510.jpeg?auto=compress&cs=tinysrgb&h=200")'), true);
+
+            });
+
+
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<POPS.DAL.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Item List</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Items")" class="btn btn-success btn-sm ">
+        Create New
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr class="bg-primary">
+            <th>
+                @Html.DisplayNameFor(model => model.ItemCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemRate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemRate)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Items", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-edit" style="font-weight:300" aria-hidden="true"></span>
+                </a> |
+                <a href="@Url.Action("Details", "Items", new { id = item.Id } )">
+                    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+                </a>|
+                <a onclick="Delete(@item.Id, '@item.ItemCode')" href="#">
+                    <span class="glyphicon glyphicon-trash" style=" color:darkred; " aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var sucessMessage = '@TempData["SuccessMessage"]';
+            if (sucessMessage != '') {
+                alertify.success(sucessMessage);
+            }
+        });
+
+        $(function () {
+            alertify.defaults.theme.ok = "btn btn-success";
+            alertify.defaults.theme.cancel = "btn btn-warning";
+        });
+        function Delete(id, iCode) {
+            alertify.confirm('Purchase Delete!', 'Are you Sure to delete Item [' + iCode + '] record?', function () {
+                window.location.href = '@Url.Action("Delete", "Items")/' + id;
+            }, null);
+        }
+    </script>
+}

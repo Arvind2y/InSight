@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+input.ng-touched.ng-invalid, select.ng-touched.ng-invalid{
+    border-color: #dc3545;
+}
+
+input.ng-valid, select.ng-valid{
+    border-color: #28a745;
+}
+
+.green-icon{
+    color: #28a745 !important;
+}
+.red-icon{
+    color: #dc3545 !important;
+   
+}
+.green-border{
+    color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 5px 0px 0px 5px ;
+}
+.red-border{
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 5px 0px 0px 5px ;
+}
+
+#toast-container > div {
+    opacity:1;
+}
+
+table tr:hover{
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: not-allowed; 
+    color: gray !important;
+    pointer-events: none;  /* use this if you want to block all pointer events on element */
+   /* display: none;  use this if you want to hide element*/
+  }

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSEDemo", "FSEDemo\FSEDemo.csproj", "{22C5D766-4CB3-456D-968E-D6C6A3E167EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22C5D766-4CB3-456D-968E-D6C6A3E167EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C5D766-4CB3-456D-968E-D6C6A3E167EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C5D766-4CB3-456D-968E-D6C6A3E167EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C5D766-4CB3-456D-968E-D6C6A3E167EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D59F269-7834-451E-B620-0790A569FDB5}
+	EndGlobalSection
+EndGlobal

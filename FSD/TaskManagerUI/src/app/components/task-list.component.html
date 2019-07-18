@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <table class="table  table-sm table-hover ">
+    <thead class=" table-dark bg-primary">
+      <tr>
+        <th>TaskID</th>
+        <th>ParentID</th>
+        <th>TaskName</th>
+        <th>StartDate</th>
+        <th>EndDate</th>
+        <th>Priority</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let td of service.taskDetails">
+        <td (click)="onEdit(td)">{{td.TaskID}}</td>
+        <td>{{td.ParentID}}</td>
+        <td (click)="onEdit(td)">{{td.TaskName}}</td>
+        <td>{{td.StartDate | date:'M-d-yyyy'}}</td>
+        <td>{{td.EndDate | date:'M-d-yyyy'}}</td>
+        <td>{{td.Priority}}</td>
+        <td>
+          <!-- <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">
+                <i class="far fa-edit fa-lg text-success" (click)="onDelete(td.TaskID)"></i></a> </li>
+            <li> <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(td.TaskID)"></i></li>
+          </ul> -->
+          <div class="justify-content-center ">
+            <span class="mx-auto col">
+              <i class="far fa-edit fa-lg text-success" (click)="onEdit(td)"></i>
+            </span>
+            <span class="mx-auto col">
+              <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(td.TaskID)"></i>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot class=" table-dark bg-primary">
+      <tr></tr>
+    </tfoot>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</div>
